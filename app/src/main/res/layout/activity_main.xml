@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    android:padding="@dimen/normal_padding"
+    tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fromConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+<TextView
+    android:id="@+id/wordFrom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:text="@string/from"
+    style="@style/TextStyle.transforming"
+    />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/wordFrom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gry"
+                android:text="@string/hexa"
+                style="@style/MyChip"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gry"
+                android:text="@string/decemal"
+                style="@style/MyChip"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gry"
+                android:text="@string/octal"
+                style="@style/MyChip"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gry"
+                android:text="binary"
+                style="@style/MyChip"
+                />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/fromConstraint"
+        app:layout_constraintStart_toStartOf="@id/fromConstraint"
+        app:layout_constraintTop_toBottomOf="@id/fromConstraint">
+
+        <TextView
+            android:id="@+id/wordTo"
+            style="@style/TextStyle.transforming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/wordTo"
+            app:layout_constraintTop_toBottomOf="@id/wordTo">
+
+            <LinearLayout
+                android:id="@+id/hexaResultLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextStyle.SystemNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hexa" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/MyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/decemalResultLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hexaResultLinear">
+
+                <TextView
+                    style="@style/TextStyle.SystemNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/decemal" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/MyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/octalResultLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/decemalResultLinear">
+
+                <TextView
+                    style="@style/TextStyle.SystemNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/octal" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/MyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/binaryResultLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/octalResultLinear">
+
+                <TextView
+                    style="@style/TextStyle.SystemNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/binary" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/MyChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultConstraintLayout">
+<LinearLayout
+    android:id="@+id/buttonsFirstRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+    <ImageButton
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        style="@style/MyButton.DeleteButton"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/MyButton.NumberButton"
+        android:layout_width="@dimen/button_height"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/_1"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="@dimen/button_height"
+        android:layout_height="@dimen/button_height"
+        style="@style/MyButton.NumberButton"
+        android:text="@string/_2"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="@dimen/button_height"
+        android:layout_height="@dimen/button_height"
+        style="@style/MyButton.NumberButton"
+        android:text="@string/_3"
+        />
+</LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsSecondtRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/buttonsFirstRow"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/_4"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/_5"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/_6"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/_7"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsthirdRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/buttonsSecondtRow"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/_8"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/_9"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="A"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="@string/b"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsFourthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/buttonsthirdRow"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="C"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="D"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="E"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.NumberButton"
+                android:text="F"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsFifthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/buttonsFourthRow"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/rectangle_button_width"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.ZeroButton"
+                android:text="@string/zero"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/rectangle_button_width"
+                android:layout_height="@dimen/button_height"
+                style="@style/MyButton.EqualButton"
+                android:text="@string/equal"
+                />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
