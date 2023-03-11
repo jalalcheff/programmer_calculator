@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val myConverter=Converter(Constants.DECEMAL,"10")
+        val myConverter=Converter(Constants.HEXA,"10")
         Log.i("myResults",myConverter.checkSelectionSystemType().toString())
     }
 }

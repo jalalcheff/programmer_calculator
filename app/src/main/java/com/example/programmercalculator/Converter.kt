@@ -7,62 +7,67 @@ import com.example.programmercalculator.Constants.HEXA
 import com.example.programmercalculator.Constants.OCTAL
 
 class Converter(var systemNumberType:String,var numberValues: String): BaseConverter() {
-private var decimal:String = this.convertToDecimal(numberValues)
+//private var decimal:String = this.convertToDecimal(numberValues)
         fun checkSelectionSystemType():SystemNumberValues
         {
             return when(systemNumberType)
             {
-                 HEXA->convertFromHexa(decimal)
-                 OCTAL->convertFromOctal(decimal)
-                 DECEMAL->convertFromDecemal(decimal)
-                 BINARY->convertFromBinary(decimal)
+                 HEXA->{
+                     Log.i("rere",convertBinaryFromHexa(numberValues))
+                     convertFromHexa(convertBinaryFromHexa(numberValues))
+                 }
+                 OCTAL->convertFromOctal(convertBinaryFromOctal1(numberValues))
+                 DECEMAL-> {
+                     Log.i("rere",convertBinaryFromDecimal(numberValues))
+                     convertFromDecemal(convertBinaryFromDecimal(numberValues))
+
+                 }
+                 BINARY->convertFromBinary(numberValues)
                 else -> throw Exception("invalid")
             }
+
             }
 
 
-    private fun convertFromBinary(decimal: String): SystemNumberValues {
-        val hexa = convertToHexa(decimal)
-        val octal = convertToOctal1(decimal)
-        val binary = convertToBinary(decimal)
-        Log.i("location","bebeee")
+    private fun convertFromBinary(binary: String): SystemNumberValues {
+        val hexa = convertToHexa(binary)
+        val octal = convertToOctal1(binary)
+        val decimal = convertToDecemal(binary)
         return SystemNumberValues(hexa, decimal, octal, binary)
     }
 
-    private fun convertFromDecemal(decimal: String): SystemNumberValues {
-        val hexa = convertToHexa(decimal)
-        val octal = convertToOctal1(decimal)
-        val binary = convertToBinary(decimal)
-        Log.i("location","decaa")
+    private fun convertFromDecemal(binary: String): SystemNumberValues {
+        val hexa = convertToHexa(binary)
+        val octal = convertToOctal1(binary)
+        val decimal=convertToDecemal(binary)
+        val binary = binary
         return SystemNumberValues(hexa, decimal, octal, binary)
     }
 
-    private fun convertFromOctal(decimal: String): SystemNumberValues {
-        val hexa = convertToHexa(decimal)
-        val octal = convertToOctal1(decimal)
-        val binary = convertToBinary(decimal)
-        Log.i("location","octaa")
+    private fun convertFromOctal(binary: String): SystemNumberValues {
+        val hexa = convertToHexa(binary)
+        val octal = convertToOctal1(binary)
+        val decimal = convertToDecemal(binary)
         return SystemNumberValues(hexa, decimal, octal, binary)
     }
 
-    private fun convertFromHexa(decimal: String): SystemNumberValues {
-        val hexa = convertToHexa(decimal)
-        val octal = convertToOctal1(decimal)
-        val binary = convertToBinary(decimal)
-        Log.i("location","hexxaa")
+    private fun convertFromHexa(binary: String): SystemNumberValues {
+        val hexa = convertToHexa(binary)
+        val octal = convertToOctal1(binary)
+        val decimal = convertToDecemal(binary)
         return SystemNumberValues(hexa, decimal, octal, binary)
     }
 
     // convert functions
-    private fun convertToHexa(decimal : String):String
+    private fun convertToHexa(binary : String):String
     {
-        return decimal.toLong().toString(16).uppercase()
+        return convertToDecemal(binary).toLong().toString(16).uppercase()
     }
-    private fun convertToOctal1(decimal: String): String {
-        return decimal.toLong().toString(8)
+    private fun convertToOctal1(binary: String): String {
+        return convertToDecemal(binary).toLong().toString(8)
     }
-    private fun convertToBinary(binary: String): String {
-        return binary.toLong().toString(2)
+     fun convertToDecemal(binary: String): String {
+            return binary.toInt(2).toString()
     }
 
 
