@@ -15,6 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
+
 <TextView
     android:id="@+id/wordFrom"
     android:layout_width="wrap_content"
@@ -31,6 +32,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             >
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/selectedChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:singleLine="true"
+                >
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,6 +67,7 @@
                 android:text="@string/binary"
                 style="@style/MyChip"
                 />
+            </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -99,12 +108,14 @@
                     style="@style/TextStyle.SystemNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/hexa" />
+                    android:layout_marginEnd="4dp"
+                    android:text="Hexa : " />
 
-                <com.google.android.material.chip.Chip
-                    style="@style/MyChip"
+                <TextView
+                    android:id="@+id/hexaResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/MyButton.NumberButton"
                     />
             </LinearLayout>
 
@@ -120,9 +131,10 @@
                     style="@style/TextStyle.SystemNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/decemal" />
+                    android:text="Decemal : " />
 
-                <com.google.android.material.chip.Chip
+                <TextView
+                    android:id="@+id/decemalResult"
                     style="@style/MyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -140,9 +152,10 @@
                     style="@style/TextStyle.SystemNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/octal" />
+                    android:text="Octal : " />
 
-                <com.google.android.material.chip.Chip
+                <TextView
+                    android:id="@+id/octalResult"
                     style="@style/MyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -152,6 +165,7 @@
                 android:id="@+id/binaryResultLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/octalResultLinear">
@@ -160,9 +174,10 @@
                     style="@style/TextStyle.SystemNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/binary" />
+                    android:text="Binary : " />
 
-                <com.google.android.material.chip.Chip
+                <TextView
+                    android:id="@+id/binaryResult"
                     style="@style/MyChip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -170,15 +185,25 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <TextView
+        android:id="@+id/inputNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/resultConstraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/TextStyle.SystemNumber"
+        android:text=""
+        />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultConstraintLayout">
-<LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/inputNumber">
+
+        <LinearLayout
     android:id="@+id/buttonsFirstRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -195,22 +220,27 @@
 
     <androidx.appcompat.widget.AppCompatButton
         style="@style/MyButton.NumberButton"
-        android:layout_width="@dimen/button_height"
+        android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:text="@string/_1"
+        android:onClick="onClickNumber"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="@dimen/button_height"
+        android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         style="@style/MyButton.NumberButton"
         android:text="@string/_2"
+        android:onClick="onClickNumber"
+
         />
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="@dimen/button_height"
+        android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         style="@style/MyButton.NumberButton"
         android:text="@string/_3"
+        android:onClick="onClickNumber"
+
         />
 </LinearLayout>
         <LinearLayout
@@ -223,28 +253,36 @@
             android:gravity="center"
             >
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/_4"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/_5"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/_6"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/_7"
+                android:onClick="onClickNumber"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -257,28 +295,36 @@
             android:gravity="center"
             >
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/_8"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/_9"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/a"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/b"
+                android:onClick="onClickNumber"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -291,28 +337,36 @@
             android:gravity="center"
             >
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/c"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/d"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/e"
+                android:onClick="onClickNumber"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/button_height"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.NumberButton"
                 android:text="@string/f"
+                android:onClick="onClickNumber"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -326,15 +380,17 @@
             >
 
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/rectangle_button_width"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.ZeroButton"
                 android:text="@string/zero"
+                android:onClick="onClickNumber"
                 />
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="@dimen/rectangle_button_width"
                 android:layout_height="@dimen/button_height"
                 style="@style/MyButton.EqualButton"
+                android:onClick="onClickEqualButton"
                 android:text="@string/equal"
                 />
 
