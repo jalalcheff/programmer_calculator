@@ -8,109 +8,114 @@
     android:padding="@dimen/normal_padding"
     tools:context=".MainActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/toConstraint"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/hexaResultLinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/hexaResultLinear"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/gry"
-                    android:text="@string/hexa"
-                    style="@style/MyChip"
-                    android:onClick="onSelectedChip"
-                    />
-                <TextView
-                    android:id="@+id/hexaResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/MyChip"
-                    />
-            </LinearLayout>
+                android:backgroundTint="@color/gry"
+                android:onClick="onSelectedChip"
+                android:text="@string/hexa" />
 
-            <LinearLayout
-                android:id="@+id/decemalResultLinear"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/hexaResult"
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/decemalResultLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hexaResultLinear">
+
+            <com.google.android.material.chip.Chip
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hexaResultLinear">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/gry"
-                    android:text="@string/decemal"
-                    style="@style/MyChip"
-                    android:onClick="onSelectedChip"
+                android:backgroundTint="@color/gry"
+                android:onClick="onSelectedChip"
+                android:text="@string/decemal"
 
-                    />
+                />
 
-                <TextView
-                    android:id="@+id/decemalResult"
-                    style="@style/MyChip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/decemalResult"
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/octalResultLinear"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/octalResultLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/decemalResultLinear">
+
+            <com.google.android.material.chip.Chip
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/decemalResultLinear">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/gry"
-                    android:text="@string/octal"
-                    style="@style/MyChip"
-                    android:onClick="onSelectedChip"
+                android:backgroundTint="@color/gry"
+                android:onClick="onSelectedChip"
+                android:text="@string/octal"
 
-                    />
-                <TextView
-                    android:id="@+id/octalResult"
-                    style="@style/MyChip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                />
 
-            <LinearLayout
-                android:id="@+id/binaryResultLinear"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/octalResult"
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/binaryResultLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/octalResultLinear">
+
+            <com.google.android.material.chip.Chip
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/octalResultLinear">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/gry"
-                    android:text="@string/binary"
-                    style="@style/MyChip"
-                    android:onClick="onSelectedChip"
+                android:backgroundTint="@color/gry"
+                android:onClick="onSelectedChip"
+                android:text="@string/binary"
 
-                    />
+                />
 
-                <TextView
-                    android:id="@+id/binaryResult"
-                    style="@style/MyChip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/binaryResult"
+                style="@style/MyChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
@@ -123,205 +128,216 @@
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toConstraint" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNumber">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-    android:id="@+id/buttonsFirstRow"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:orientation="horizontal"
-    android:gravity="center"
-    >
-    <ImageButton
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        style="@style/MyButton.DeleteButton"
-        android:onClick="onClickDeleteButton"
-        />
+            android:id="@+id/buttonsFirstRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        style="@style/MyButton.NumberButton"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/_1"
-        android:onClick="onClickNumber"
-        />
+            <ImageButton
+                style="@style/MyButton.DeleteButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:onClick="onClickDeleteButton"
+                />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        style="@style/MyButton.NumberButton"
-        android:text="@string/_2"
-        android:onClick="onClickNumber"
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:onClick="onClickNumber"
+                android:text="@string/_1" />
 
-        />
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        style="@style/MyButton.NumberButton"
-        android:text="@string/_3"
-        android:onClick="onClickNumber"
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:onClick="onClickNumber"
+                android:text="@string/_2"
 
-        />
-</LinearLayout>
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:onClick="onClickNumber"
+                android:text="@string/_3"
+
+                />
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/buttonsSecondtRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonsFirstRow"
-            app:layout_constraintStart_toStartOf="parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonsFirstRow">
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/_4"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/_5"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/_6"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
-                android:text="@string/_7"
                 android:onClick="onClickNumber"
+                android:text="@string/_7"
 
                 />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/buttonsthirdRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonsSecondtRow"
-            app:layout_constraintStart_toStartOf="parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonsSecondtRow">
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/_8"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/_9"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/a"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
-                android:text="@string/b"
                 android:onClick="onClickNumber"
+                android:text="@string/b"
 
                 />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/buttonsFourthRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonsthirdRow"
-            app:layout_constraintStart_toStartOf="parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonsthirdRow">
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/c"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/d"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
+                android:onClick="onClickNumber"
                 android:text="@string/e"
-                android:onClick="onClickNumber"
 
                 />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.NumberButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.NumberButton"
-                android:text="@string/f"
                 android:onClick="onClickNumber"
+                android:text="@string/f"
 
                 />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/buttonsFifthRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/buttonsFourthRow"
-            app:layout_constraintStart_toStartOf="parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonsFourthRow">
 
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.ZeroButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.ZeroButton"
-                android:text="@string/zero"
                 android:onClick="onClickNumber"
-                />
+                android:text="@string/zero" />
+
             <androidx.appcompat.widget.AppCompatButton
+                style="@style/MyButton.EqualButton"
                 android:layout_width="@dimen/rectangle_button_width"
                 android:layout_height="@dimen/button_height"
-                style="@style/MyButton.EqualButton"
                 android:onClick="onClickEqualButton"
-                android:text="@string/equal"
-                />
+                android:text="@string/equal" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
