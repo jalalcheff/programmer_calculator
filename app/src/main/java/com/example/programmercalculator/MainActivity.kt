@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val myConverter=Converter(Constants.DECEMAL,"10")
-        Log.i("myResults",myConverter.checkSelectionSystemType().toString())
+      //  val myConverter=Converter(Constants.DECEMAL,"10")
+        //Log.i("myResults",myConverter.checkSelectionSystemType().toString())
     }
 
     fun onClickEqualButton(view: View)
@@ -23,13 +23,15 @@ class MainActivity : AppCompatActivity() {
         val whatChipSelected=findViewById<ChipGroup>(R.id.selectedChipGroup).checkedChipId
         val selectedChip=findViewById<Chip>(whatChipSelected)
        // var myConverter:Converter?=null
-        Log.i("mrmr",selectedChipText.toString())
+        Log.i("mrmr","$selectedChipText : ${Constants.DECEMAL}")
+        assignValues(Converter(Constants.DECEMAL,inputNumberValues))
         when(selectedChipText)
         {
          Constants.HEXA->{
               assignValues(Converter(Constants.HEXA,inputNumberValues))
          }
             Constants.DECEMAL->{
+                Log.i("bsbs",Converter(Constants.DECEMAL,inputNumberValues).checkSelectionSystemType().hexa)
                 assignValues(Converter(Constants.DECEMAL,inputNumberValues))
             }
             Constants.OCTAL->{
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             Constants.BINARY->{
                 assignValues(Converter(Constants.BINARY,inputNumberValues))
             }
+
         }
 
 
@@ -49,10 +52,10 @@ class MainActivity : AppCompatActivity() {
         val decemal=findViewById<TextView>(R.id.decemalResult)
         val octal=findViewById<TextView>(R.id.octalResult)
         val binary=findViewById<TextView>(R.id.binaryResult)
-        hexa.text= converter?.checkSelectionSystemType()?.hexa
-        decemal.text= converter?.checkSelectionSystemType()?.decemal
-        octal.text= converter?.checkSelectionSystemType()?.decemal
-        binary.text= converter?.checkSelectionSystemType()?.binary
+        hexa.text= converter.checkSelectionSystemType().hexa
+        decemal.text= converter.checkSelectionSystemType().decemal
+        octal.text= converter.checkSelectionSystemType().octal
+        binary.text= converter.checkSelectionSystemType().binary
     }
 
     fun onClickNumber(view: View)

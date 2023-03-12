@@ -2,8 +2,8 @@
     <string name="app_name">programmer calculator</string>
     <string name="from">from</string>
     <string name="hexa">Hexa </string>
-    <string name="octal">octal </string>
-    <string name="decemal">decemal </string>
+    <string name="octal">Octal </string>
+    <string name="decemal">Decemal </string>
     <string name="to">to</string>
     <string name="binary">binary </string>
     <string name="b">B</string>

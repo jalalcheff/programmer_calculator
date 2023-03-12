@@ -41,6 +41,7 @@ class Converter(var systemNumberType:String,var numberValues: String): BaseConve
         val octal = convertToOctal1(binary)
         val decimal=convertToDecemal(binary)
         val binary = binary
+        Log.i("bobo",SystemNumberValues(hexa, decimal, octal, binary).octal)
         return SystemNumberValues(hexa, decimal, octal, binary)
     }
 
