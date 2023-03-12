@@ -7,101 +7,14 @@
     android:background="@color/backGround"
     android:padding="@dimen/normal_padding"
     tools:context=".MainActivity">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fromConstraint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
-
-<TextView
-    android:id="@+id/wordFrom"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:text="@string/from"
-    style="@style/TextStyle.transforming"
-    />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/wordFrom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            >
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/selectedChipGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:singleSelection="true"
-                app:singleLine="true"
-                >
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/gry"
-                android:text="@string/hexa"
-                style="@style/MyChip"
-                android:onClick="onSelectedChip"
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/gry"
-                android:text="@string/decemal"
-                style="@style/MyChip"
-                android:onClick="onSelectedChip"
-
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/gry"
-                android:text="@string/octal"
-                style="@style/MyChip"
-                android:onClick="onSelectedChip"
-
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/gry"
-                android:text="@string/binary"
-                style="@style/MyChip"
-                android:onClick="onSelectedChip"
-
-                />
-            </com.google.android.material.chip.ChipGroup>
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/fromConstraint"
-        app:layout_constraintStart_toStartOf="@id/fromConstraint"
-        app:layout_constraintTop_toBottomOf="@id/fromConstraint">
-
-        <TextView
-            android:id="@+id/wordTo"
-            style="@style/TextStyle.transforming"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/to"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/wordTo"
-            app:layout_constraintTop_toBottomOf="@id/wordTo">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:id="@+id/hexaResultLinear"
@@ -110,14 +23,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    style="@style/TextStyle.SystemNumber"
+                <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:text="Hexa : " />
-
+                    android:backgroundTint="@color/gry"
+                    android:text="@string/hexa"
+                    style="@style/MyChip"
+                    android:onClick="onSelectedChip"
+                    />
                 <TextView
                     android:id="@+id/hexaResult"
                     android:layout_width="wrap_content"
@@ -133,12 +46,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/hexaResultLinear">
-
-                <TextView
-                    style="@style/TextStyle.SystemNumber"
+                <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Decemal : " />
+                    android:backgroundTint="@color/gry"
+                    android:text="@string/decemal"
+                    style="@style/MyChip"
+                    android:onClick="onSelectedChip"
+
+                    />
 
                 <TextView
                     android:id="@+id/decemalResult"
@@ -154,13 +70,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/decemalResultLinear">
-
-                <TextView
-                    style="@style/TextStyle.SystemNumber"
+                <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Octal : " />
+                    android:backgroundTint="@color/gry"
+                    android:text="@string/octal"
+                    style="@style/MyChip"
+                    android:onClick="onSelectedChip"
 
+                    />
                 <TextView
                     android:id="@+id/octalResult"
                     style="@style/MyChip"
@@ -176,12 +94,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/octalResultLinear">
-
-                <TextView
-                    style="@style/TextStyle.SystemNumber"
+                <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Binary : " />
+                    android:backgroundTint="@color/gry"
+                    android:text="@string/binary"
+                    style="@style/MyChip"
+                    android:onClick="onSelectedChip"
+
+                    />
 
                 <TextView
                     android:id="@+id/binaryResult"
@@ -191,17 +112,17 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/inputNumber"
+        style="@style/TextStyle.SystemNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/resultConstraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/TextStyle.SystemNumber"
+        android:layout_margin="@dimen/normal_margin"
         android:text=""
-        />
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toConstraint" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

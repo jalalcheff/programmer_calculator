@@ -20,11 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickEqualButton(view: View)
     {
-        val whatChipSelected=findViewById<ChipGroup>(R.id.selectedChipGroup).checkedChipId
-        val selectedChip=findViewById<Chip>(whatChipSelected)
+
        // var myConverter:Converter?=null
         Log.i("mrmr","$selectedChipText : ${Constants.DECEMAL}")
-        assignValues(Converter(Constants.DECEMAL,inputNumberValues))
         when(selectedChipText)
         {
          Constants.HEXA->{

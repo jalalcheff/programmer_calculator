@@ -13,7 +13,6 @@ class Converter(var systemNumberType:String,var numberValues: String): BaseConve
             return when(systemNumberType)
             {
                  HEXA->{
-                     Log.i("rere",convertBinaryFromHexa(numberValues))
                      convertFromHexa(convertBinaryFromHexa(numberValues))
                  }
                  OCTAL->convertFromOctal(convertBinaryFromOctal1(numberValues))
