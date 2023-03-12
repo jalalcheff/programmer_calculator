@@ -72,4 +72,11 @@ class MainActivity : AppCompatActivity() {
         Log.i("frfr",(view as Chip).text.toString())
     }
 
+    fun onClickDeleteButton(view: View)
+    {
+
+        inputNumberValues=inputNumberValues.dropLast(1)
+        findViewById<TextView>(R.id.inputNumber).text= inputNumberValues
+    }
+
 }
