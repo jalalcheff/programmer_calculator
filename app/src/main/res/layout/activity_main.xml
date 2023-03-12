@@ -45,6 +45,7 @@
                 android:backgroundTint="@color/gry"
                 android:text="@string/hexa"
                 style="@style/MyChip"
+                android:onClick="onSelectedChip"
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -52,6 +53,8 @@
                 android:backgroundTint="@color/gry"
                 android:text="@string/decemal"
                 style="@style/MyChip"
+                android:onClick="onSelectedChip"
+
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -59,6 +62,8 @@
                 android:backgroundTint="@color/gry"
                 android:text="@string/octal"
                 style="@style/MyChip"
+                android:onClick="onSelectedChip"
+
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -66,6 +71,8 @@
                 android:backgroundTint="@color/gry"
                 android:text="@string/binary"
                 style="@style/MyChip"
+                android:onClick="onSelectedChip"
+
                 />
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
@@ -115,7 +122,7 @@
                     android:id="@+id/hexaResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/MyButton.NumberButton"
+                    style="@style/MyChip"
                     />
             </LinearLayout>
 
